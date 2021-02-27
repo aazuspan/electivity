@@ -1,4 +1,6 @@
+[![DOI](https://zenodo.org/badge/342729167.svg)](https://zenodo.org/badge/latestdoi/342729167)
 # electivity
+Ecological electivity and forage indices
 
 ## Description
 
@@ -49,6 +51,9 @@ data = data.assign(E=electivity.ivlev_electivity(data.available, data.consumed))
 | strauss_linear         | Strauss' Linear Index L (Strauss 1979)                        |
 | chessons_alpha         | Chesson's Alpha α (Chesson 1978)                              |
 | relativized_electivity | Relativized Electivity Index E\* (Vanderploeg & Scavia, 1979) |
+
+## Citation
+Zuspan, A. 2021. electivity: Ecological electivity and forage indices, v1.0.0, Zenodo, doi:10.5281/zenodo.4567591
 
 ## References
 
