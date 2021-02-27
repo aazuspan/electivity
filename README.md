@@ -10,17 +10,8 @@ Designed to work seamlessly with Pandas dataframes.
 
 ## Installation
 
-### Using pip
-
 ```
 pip install electivity
-```
-
-### Using pipenv
-
-```
-pipenv install electivity
-pipenv shell
 ```
 
 ## Usage
