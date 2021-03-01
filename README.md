@@ -47,7 +47,7 @@ data = data.assign(E=electivity.ivlev_electivity(data.available, data.consumed))
 
 ## Citation
 
-Zuspan, A. 2021. electivity: Ecological electivity and forage indices, v1.0.0, Zenodo, doi:10.5281/zenodo.4567591
+Zuspan, A. 2021. electivity: Ecological electivity and forage indices, v2.0.0, Zenodo, doi:10.5281/zenodo.4567591
 
 ## References
 
