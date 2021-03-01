@@ -9,6 +9,7 @@ pandas = "*"
 [dev-packages]
 pipenv-setup = "*"
 twine = "*"
+bumpversion = "*"
 
 [requires]
 python_version = "3.8"
