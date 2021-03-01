@@ -24,13 +24,13 @@ def ivlev_forage_ratio(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     E = r.divide(p)
 
-    return E.values
+    return E
 
 
 def ivlev_electivity(available, consumed):
@@ -39,13 +39,13 @@ def ivlev_electivity(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     E = r.subtract(p).divide(r.add(p))
 
-    return E.values
+    return E
 
 
 def jacobs_electivity(available, consumed):
@@ -54,13 +54,13 @@ def jacobs_electivity(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     D = r.subtract(p).divide(r.add(p).subtract(r.multiply(p.multiply(2))))
 
-    return D.values
+    return D
 
 
 def jacobs_forage_ratio(available, consumed):
@@ -69,14 +69,14 @@ def jacobs_forage_ratio(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     Q = r.multiply(p.multiply(-1).add(1)
                    ).divide(p.multiply(r.multiply(-1).add(1)))
 
-    return Q.values
+    return Q
 
 
 def strauss_linear(available, consumed):
@@ -85,13 +85,13 @@ def strauss_linear(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     L = r.subtract(p)
 
-    return L.values
+    return L
 
 
 def chessons_alpha(available, consumed):
@@ -100,13 +100,13 @@ def chessons_alpha(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
     r, p = _normalize(available, consumed)
 
     a = r.divide(p).divide(r.divide(p).sum())
 
-    return a.values
+    return a
 
 
 def relativized_electivity(available, consumed):
@@ -115,12 +115,11 @@ def relativized_electivity(available, consumed):
 
     :param list: available A list or list-like object of elements representing available resources.
     :param list: consumed A list of list-like object of elements representing consumed resources.
-    :return list: A list of electivity values corresponding to each element of the input lists.
+    :return pd.Series: A list of electivity values corresponding to each element of the input lists.
     """
-    r, p = _normalize(available, consumed)
     W = pd.Series(chessons_alpha(available, consumed))
-    n = len(r)
+    n = len(available)
 
     E = W.subtract(1/n).divide(W.add(1/n))
 
-    return E.values
+    return E

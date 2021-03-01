@@ -1,5 +1,7 @@
 [![DOI](https://zenodo.org/badge/342729167.svg)](https://zenodo.org/badge/latestdoi/342729167)
+
 # electivity
+
 Ecological electivity and forage indices
 
 ## Description
@@ -25,7 +27,7 @@ pipenv shell
 
 ## Usage
 
-Every `electivity` [function](https://github.com/aazuspan/electivity#Functions-and-indices) take two parameters—a list of available resources and a list of consumed resources—and return an equal-length list of electivity values calculated element-wise. The easiest way to work with `electivity` is using Pandas dataframes, but any list-like data input will work.
+Every `electivity` [function](https://github.com/aazuspan/electivity#Functions-and-indices) takes two parameters—a list of available resources and a list of consumed resources—and returns an equal-length Pandas Series of electivity values calculated element-wise. The easiest way to work with `electivity` is using Pandas dataframes, but any list-like data input will work. If a list output is desired, the output can be cast using `list( ... )`.
 
 ### Example
 
@@ -53,6 +55,7 @@ data = data.assign(E=electivity.ivlev_electivity(data.available, data.consumed))
 | relativized_electivity | Relativized Electivity Index E\* (Vanderploeg & Scavia, 1979) |
 
 ## Citation
+
 Zuspan, A. 2021. electivity: Ecological electivity and forage indices, v1.0.0, Zenodo, doi:10.5281/zenodo.4567591
 
 ## References
